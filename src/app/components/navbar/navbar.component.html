@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="navbar">
+    <div >
+        <div style="font-family:Arial, Helvetica, sans-serif; font-weight:bolder; margin-left: 25%;">Electronics Shop</div>
+        
+    </div>
+    <div>
+          <a *ngIf="!IsAdmin" [routerLink]="['CProducts']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" >Products</a>
+          <a *ngIf="IsAdmin" [routerLink]="['DProducts']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Admin Prodcuts</a>
+          <a *ngIf="IsAdmin" [routerLink]="['Orders']"    routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" >Orders</a>
+          <a *ngIf="!(IsAdmin||IsCustomer)" [routerLink]="['/Signin']" >Login</a>
+          <a *ngIf="!(IsAdmin||IsCustomer)" [routerLink]="['/Register']">Register</a>
+           <a style="color: white;" *ngIf="IsCustomer" >hi customer</a>
+           <a style="color: white;" *ngIf="IsAdmin" >hi admin</a>
+           <a style="color: white;" *ngIf="IsAdmin||IsCustomer" (click)="logout()">Logout</a>
+    </div>
+</mat-toolbar>
